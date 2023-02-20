@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.linalg from solve
+from scipy.linalg import solve
 # 1.
 def nevilles_method(x_points, y_points, approximated_x):
     size = len(x_points)
