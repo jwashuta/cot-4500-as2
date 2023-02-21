@@ -39,53 +39,52 @@ def newton_method_and_approx():
     print(p_x, "\n")
 
 # 4. 
-def apply_div_diff(matrix: np.array):
-    for i in range(2, len(matrix)):
-        for j in range(2, i + 2):
+def number_four():
+    a1 = 3.6
+    a2 = 3.6
+    a3 = 3.8
+    a4 = 3.8
+    a5 = 3.9
+    a6 = 3.9
+    b1 = 1.675
+    b2 = 1.675
+    b3 = 1.436
+    b4 = 1.436
+    b5 = 1.318
+    b6 = 1.318
 
-            if j >= len(matrix[i]) or matrix[i][j] != 0:
-                continue
+    c1 = 0
+    c2 = -1.195
+    c3 = (b3 - b2) / (a3 - a2)
+    c4 = -1.188
+    c5 = (b5 - b4) / (a5 - a4)
+    c6 = -1.182
 
-            numerator = matrix[i][j - 1] - matrix[i - 1][j - 1]
-            
-            denominator = matrix[i][0] - matrix[i - j + 1][0]
+    d1 = 0
+    d2 = 0
+    d3 = (c3 - c2) / (a3 - a2)
+    d4 = (c4 - c3) / (a4 - a2)
+    d5 = (c5 - c4) / (a5 - a3)
+    d6 = (c6 - c5) / (a6 - a4)
 
-            operation = numerator / denominator
-            matrix[i][j] = operation
-    return matrix
+    e1 = 0
+    e2 = 0
+    e3 = 0
+    e4 = (d4 - d3) / (a4 - a1)
+    e5 = (d5 - d4) / (a5 - a2)
+    e6 = (d6 - d5) / (a6 - a3)
 
-def hermite_interpolation():
-    x_points = [3.6, 3.8, 3.9]
-    y_points = [1.675, 1.436, 1.318]
-    slopes = [-1.195, -1.188, -1.182] 
-    size = len(x_points) 
-    matrix = np.zeros((size * 2, size * 2))
+    f1 = 0
+    f2 = 0
+    f3 = 0
+    f4 = 0
+    f5 = (e5 - e4) / (a5 - a1)
+    f6 = (e6 - e5) / (a6 - a2)
 
-    index = 0
-    for x in range(0, size * 2, 2):
-        matrix[x][0] = x_points[index]
-        matrix[x + 1][0] = x_points[index]
-        index += 1
-        
-    index = 0
-    for y in range(0, size * 2, 2):
-        matrix[y][1] = y_points[index]
-        matrix[y + 1][1] = y_points[index]
-        index += 1
-
-    index = 0
-    for x in range(1, size * 2 - 1, 2):
-        matrix[x][2] = slopes[index]
-        matrix[x + 1][2] = (y_points[index] - y_points[index - 2]) / (x_points[index] - x_points[index - 2])
-        matrix[5][2] = -1.182
-        index += 1
-
-    filled_matrix = apply_div_diff(matrix)
-
-    print(filled_matrix, "\n")
-
+    a = np.matrix([[a1, b1, c1, d1, e1, f1], [a2, b2, c2, d2, e2, f2], [a3, b3, c3, d3, e3, f3], \
+                   [a4, b4, c4, d4, e4, f4], [a5, b5, c5, d5, e5, f5], [a6, b6, c6, d6, e6, f6]])
+    print(a)
 # 5.    
-
 def cubic_spline_matrix(x, y):
     size = len(x)
     matrix: np.array = np.zeros((size, size))
@@ -124,7 +123,7 @@ if __name__ == "__main__":
     newton_method_and_approx()
 
     # 4
-    #hermite_interpolation()
+    number_four()
 
     # 5
     x = [2, 5, 8, 10]
