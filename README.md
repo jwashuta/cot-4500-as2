@@ -22,5 +22,7 @@ This code was designed to find the 2nd degree using Neville's method for questio
 
 -Install NumPy. This can be done by typing "pip install numpy" into the terminal.
 
+-Install scipy. This can be done by typing "pip install scipy" into the terminal.
+
 -Into the command line type
 "python assignment_2.py", then hit ENTER to run.
