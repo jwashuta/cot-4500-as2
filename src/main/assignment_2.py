@@ -128,4 +128,4 @@ if __name__ == "__main__":
     # 5
     x = [2, 5, 8, 10]
     y = [3, 5, 7, 9]
-    #cubic_spline_matrix(x, y)
+    cubic_spline_matrix(x, y)
